@@ -1,0 +1,60 @@
+@import "_variables.sass"
+
+#dropdown
+    width: auto
+    height: 100%
+    margin: 0 10px
+    display: flex
+    justify-content: center
+    align-items: center
+        
+    a
+        width: 100%
+        height: 100%
+        font-size: 1rem
+        font-weight: 700
+        color: $text-first-color
+        text-decoration: none
+        cursor: pointer
+        display: flex
+        justify-content: center
+        align-items: center
+
+    #categoryMenu
+        width: 100%
+        height: 100%
+        font-size: 1rem
+        font-weight: 700
+        color: $text-first-color
+        text-decoration: none
+        cursor: pointer
+        display: flex
+        justify-content: center
+        align-items: center
+
+    #categoryMenu-content
+        position: absolute
+        top: 60px
+        left: 0
+        width: 100%
+        height: 50px
+        background: $bg-primary-color
+        display: none
+        flex-direction: row
+        justify-content: center
+        align-items: center
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2)
+
+        a
+            width: 100%
+            height: 100%
+            margin: 0 10px
+            display: flex
+            justify-content: center
+            align-items: center
+            font-weight: 700
+
+            &:hover
+                background: $bg-hover
+                color: #4f1271
+                transition: .3s all ease-in-out

@@ -1,0 +1,360 @@
+@import "_variables.sass"
+
+main
+    width: 100%
+    min-height: 100dvh
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: flex-start
+    
+    .main-container
+        width: 95%
+        height: 100%
+        padding: 20px
+        display: flex
+        align-items: center
+        justify-content: center
+
+        .main-content
+            width: 100%
+            height: 100%
+            display: flex
+            flex-direction: column
+            align-items: center
+            justify-content: center
+
+            .cart-box
+                width: 100%
+                height: 100%
+                display: flex
+                flex-direction: column
+                justify-content: center
+                align-items: center
+
+                .cart-table
+                    width: 100%
+                    height: 100%
+                    display: flex
+                    flex-direction: column
+                    align-items: center
+                    justify-content: flex-start
+                    gap: 5px
+
+                    .cart-header
+                        width: 100%
+                        height: 50px
+                        display: flex
+                        flex-direction: row
+                        align-items: center
+                        justify-content: center
+                        background: $bg-primary-color
+                        color: $text-first-color
+
+                        ul
+                            display: flex
+                            flex-direction: row
+                            align-items: center
+                            justify-content: space-between
+                            list-style: none
+                            width: 100%
+                            height: 100%
+
+                            li
+                                width: 100%
+                                height: 100%
+                                display: flex
+                                flex-direction: row
+                                align-items: center
+                                justify-content: center
+                                padding: 0 10px
+                                color: $text-first-color
+                                font-size: 1.2rem
+                                border: 1px solid $bg-secundary-color
+                    
+                    .cart-body
+                        width: 100%
+                        height: 100%
+                        display: flex
+                        flex-direction: column
+                        justify-content: flex-start
+                        align-items: center
+
+                        .cart-item
+                            width: 100%
+                            height: 100px
+                            margin: 5px 0
+                            display: flex
+                            flex-direction: row
+                            align-items: center
+                            justify-content: center
+                            border: 2px solid $bg-primary-color
+
+                            .NonProduct
+                                width: 100%
+                                text-align: center
+                                font-size: 1.2rem
+                                font-weight: 500
+                                color: $text-second-color
+                            
+                            .cart-product
+                                width: 33.5%
+                                height: 100%
+                                display: flex
+                                flex-direction: row
+                                justify-content: flex-start
+                                align-items: center
+
+                                .product-image
+                                    height: 100%
+                                    display: flex
+                                    justify-content: center
+                                    align-items: center
+
+                                    img
+                                        width: 100%
+                                        height: 100%
+                                        object-fit: contain
+                                        aspect-ratio: 4/3
+
+                                .product-info
+                                    width: 100%
+                                    height: 100%
+                                    display: flex
+                                    flex-direction: column
+                                    align-items: center
+                                    justify-content: center
+
+                                    h3
+                                        font-size: 1rem
+                                        font-weight: 500
+                                        color: $text-second-color
+                            
+                            .product-count
+                                width: calc( 100% - 33.5% )
+                                height: 100%
+                                display: flex
+                                flex-direction: row
+                                align-items: center
+                                justify-content: space-between
+
+                                .product-name
+                                    display: none
+
+                                .cart-price
+                                    width: 100%
+                                    height: 100%
+                                    display: flex
+                                    flex-direction: row
+                                    align-items: center
+                                    justify-content: center
+
+                                    span
+                                        font-size: 1.2rem
+                                        font-weight: 600
+                                        color: $text-second-color
+                                        
+                                .cart-quantity
+                                    width: 100%
+                                    height: 100%
+                                    display: flex
+                                    flex-direction: row
+                                    align-items: center
+                                    justify-content: center
+
+                                    button
+                                        width: 30px
+                                        height: 30px
+                                        background: $bg-primary-color
+                                        color: $text-first-color
+                                        font-size: 1rem
+                                        font-weight: 700
+                                        border: 1px solid transparent
+                                        border-radius: 5px
+                                        cursor: pointer
+                                        transition: background 0.3s
+
+                                        &:hover
+                                            background: transparent
+                                            color: $text-second-color
+                                            border: 1px solid $bg-primary-color
+
+                                    span
+                                        width: 50px
+                                        height: 30px
+                                        padding: 10px
+                                        font-size: 1rem
+                                        font-weight: 500
+                                        color: $text-second-color
+                                        text-align: center
+                    
+                    .cart-footer
+                        width: 100%
+                        height: 50px
+                        display: flex
+                        flex-direction: row
+                        justify-content: space-between
+                        align-items: center
+                        background: $bg-primary-color
+                        color: $text-first-color
+                        padding: 0 20px
+
+                        .cart-total
+                            width: 100%
+                            height: 100%
+                            display: flex
+                            flex-direction: row
+                            align-items: center
+                            justify-content: center
+
+                            span
+                                font-size: 1.2rem
+                                color: $text-first-color
+
+                            #total
+                                margin-left: 10px
+
+                        .cart-buttons
+                            width: 100%
+                            height: 100%
+                            display: flex
+                            flex-direction: row
+                            align-items: center
+                            justify-content: center
+
+                            button
+                                height: 40px
+                                padding: 10px
+                                background: $bg-tertiary-color
+                                color: $text-second-color
+                                font-size: 1rem
+                                font-weight: 700
+                                border: 1px solid transparent
+                                border-radius: 5px
+                                cursor: pointer
+                                transition: background 0.3s
+                                display: flex
+                                justify-content: center
+                                align-items: center
+
+                                &:hover
+                                    background: transparent
+                                    color: $text-first-color
+                                    border: 1px solid $bg-tertiary-color
+
+@media screen and ( max-width: 747px )
+    main
+        .main-container
+            .main-content
+                .cart-box
+                    .cart-table
+                        .cart-header
+                            display: none
+
+                        .cart-body
+                            .cart-item
+                                display: flex
+                                flex-direction: row
+                                justify-content: flex-start
+                                align-items: center
+                                .cart-product
+                                    width: 100px
+                                    .product-image
+                                        img
+                                            aspect-ratio: 1/1
+
+                                    .product-info
+                                        display: none
+
+                                .product-count
+                                    width: calc( 100% - 100px )
+                                    display: flex
+                                    flex-flow: row wrap
+                                    justify-content: center
+                                    align-items: flex-start
+                                    
+                                    .product-name
+                                        width: 100%
+                                        height: 50%
+                                        display: flex
+                                        flex-direction: row
+                                        align-items: center 
+                                        justify-content: center
+                                        font-size: 1rem
+                                        font-weight: 500
+                                        color: $text-second-color
+
+                                    .cart-price
+                                        width: 50%
+                                        height: 50%
+
+                                        span
+                                            font-size: 1rem
+                                            font-weight: 600
+                                        
+                                    .cart-quantity
+                                        width: 50%
+                                        height: 50%
+
+                                        button
+                                            width: 30px
+                                            height: 30px
+                                            font-size: 1rem
+
+                                        span
+                                            width: 50px
+                                            height: 30px
+                                            font-size: 1rem
+                        
+                        .cart-footer
+                            .cart-total
+                                span
+                                    font-size: 1rem
+
+                            .cart-buttons
+                                button
+                                    font-size: 1rem
+
+@media screen and ( max-width: 405px )
+    main
+        .main-container
+            .main-content
+                .cart-box
+                    .cart-table
+                        .cart-body
+                            .cart-item
+                                .cart-product
+                                    width: 80px
+                                    .product-image
+                                        img
+                                            aspect-ratio: 1/1
+
+                                    .product-info
+                                        display: none
+
+                                .product-count
+                                    width: calc( 100% - 80px )
+                                    .cart-price
+                                        span
+                                            font-size: 0.8rem
+                                        
+                                    .cart-quantity
+                                        button
+                                            width: 25px
+                                            height: 25px
+                                            font-size: 0.8rem
+
+                                        span
+                                            width: 40px
+                                            height: 25px
+                                            font-size: 0.8rem
+                        
+                        .cart-footer
+                            .cart-total
+                                span
+                                    font-size: 0.8rem
+
+                            .cart-buttons
+                                button
+                                    padding: 5px
+                                    font-size: 0.8rem
