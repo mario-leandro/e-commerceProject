@@ -1,9 +1,12 @@
 import "@/styles/mainCarrinho.sass";
 import { useCart } from '@/context/CartContext';
 import { useState, useEffect } from "react";
+import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export default function MainCarrinho() {
-    const { cart } = useCart();
+    const { cart, removeFromCart } = useCart();
     const [quantities, setQuantities] = useState({});
 
     useEffect(() => {
@@ -36,6 +39,7 @@ export default function MainCarrinho() {
                                     <li>Produto</li>
                                     <li>Preço</li>
                                     <li>Quantidade</li>
+                                    <li>Ações</li>
                                 </ul>
                             </div>
 
@@ -44,7 +48,12 @@ export default function MainCarrinho() {
                                     <div className="cart-item" key={product.id}>
                                         <div className="cart-product">
                                             <div className="product-image">
-                                                <img src={product.image} alt="Produto" />
+                                                <Image 
+                                                    src={product.image} 
+                                                    alt={product.title} 
+                                                    width={100} 
+                                                    height={100} 
+                                                />
                                             </div>
                                             
                                             <div className="product-info">
@@ -66,6 +75,11 @@ export default function MainCarrinho() {
                                                     <span>{quantities[product.id]}</span>
                                                     <button onClick={() => handleQuantityChange(product.id, 1)}>+</button>
                                                 </div>
+                                            </div>
+                                            <div className="cart-actions">
+                                                <button onClick={() => removeFromCart(product.id)}>
+                                                    <FontAwesomeIcon icon={faTrash} />
+                                                </button>
                                             </div>
                                         </div>
                                     </div>

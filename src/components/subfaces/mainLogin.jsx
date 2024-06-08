@@ -1,4 +1,5 @@
 import "@/styles/mainLogin.sass";
+import Link from "next/link";
 
 export default function MainLogin() {
     return (
@@ -33,7 +34,7 @@ export default function MainLogin() {
                             </div>
 
                             <div className="link-container">
-                                <p>Não tem conta? <a href="/registrar">Criar conta</a></p>
+                                <p>Não tem conta? <Link href="/registrar">Criar conta</Link></p>
                             </div>
 
                             <div className="button-container">

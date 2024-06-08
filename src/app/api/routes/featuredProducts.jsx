@@ -4,6 +4,7 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import UseApi from "@/app/api/api.js";
 import "dotenv";
+import Image from "next/image";
 
 const FeaturedProducts = () => {
     const [data, setData] = useState([]);
@@ -34,7 +35,12 @@ const FeaturedProducts = () => {
             {data && data.map((i) => (
                 <Link href={`/produto/${i.id}`} className="card" key={i.id}>
                     <div className="card-image">
-                        <img src={i.image} alt="Imagem do produto" />
+                        <Image
+                            src={i.image}
+                            alt={i.title}
+                            width={200}
+                            height={200}
+                        />
                     </div>
 
                     <div className="card-body">

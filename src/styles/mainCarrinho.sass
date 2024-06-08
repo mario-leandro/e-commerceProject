@@ -87,7 +87,7 @@ main
                             display: flex
                             flex-direction: row
                             align-items: center
-                            justify-content: center
+                            justify-content: flex-start
                             border: 2px solid $bg-primary-color
 
                             .NonProduct
@@ -98,7 +98,7 @@ main
                                 color: $text-second-color
                             
                             .cart-product
-                                width: 33.5%
+                                width: 25%
                                 height: 100%
                                 display: flex
                                 flex-direction: row
@@ -131,18 +131,18 @@ main
                                         color: $text-second-color
                             
                             .product-count
-                                width: calc( 100% - 33.5% )
+                                width: calc( 100% - 25% )
                                 height: 100%
                                 display: flex
                                 flex-direction: row
                                 align-items: center
-                                justify-content: space-between
+                                justify-content: center
 
                                 .product-name
                                     display: none
 
                                 .cart-price
-                                    width: 100%
+                                    width: calc( 100% - 100px )
                                     height: 100%
                                     display: flex
                                     flex-direction: row
@@ -155,7 +155,7 @@ main
                                         color: $text-second-color
                                         
                                 .cart-quantity
-                                    width: 100%
+                                    width: calc( 100% - 100px )
                                     height: 100%
                                     display: flex
                                     flex-direction: row
@@ -187,6 +187,37 @@ main
                                         font-weight: 500
                                         color: $text-second-color
                                         text-align: center
+
+                                .cart-actions
+                                    width: calc( 100% - 100px )
+                                    height: 100%
+                                    display: flex
+                                    align-items: center
+                                    justify-content: center
+
+                                    button
+                                        width: 30px
+                                        height: 30px
+                                        background: $bg-tertiary-color
+                                        color: $text-first-color
+                                        font-size: 1rem
+                                        font-weight: 700
+                                        border: 1px solid transparent
+                                        border-radius: 5px
+                                        cursor: pointer
+                                        transition: background 0.3s
+                                        display: flex
+                                        justify-content: center
+                                        align-items: center
+                                        margin: 0 5px
+
+                                        &:hover
+                                            background: transparent
+                                            color: $text-first-color
+                                            border: 1px solid $bg-tertiary-color
+
+                                    button:last-child
+                                        background: $bg-danger-color
                     
                     .cart-footer
                         width: 100%
@@ -285,7 +316,7 @@ main
                                         color: $text-second-color
 
                                     .cart-price
-                                        width: 50%
+                                        width: 33%
                                         height: 50%
 
                                         span
@@ -293,7 +324,7 @@ main
                                             font-weight: 600
                                         
                                     .cart-quantity
-                                        width: 50%
+                                        width: 33%
                                         height: 50%
 
                                         button
@@ -305,6 +336,21 @@ main
                                             width: 50px
                                             height: 30px
                                             font-size: 1rem
+                                    
+                                    .cart-actions
+                                        width: 33%
+                                        height: 50%
+                                        display: flex
+                                        align-items: center
+                                        justify-content: center
+
+                                        button
+                                            width: 30px
+                                            height: 30px
+                                            font-size: 1rem
+
+                                            button:last-child
+                                                background: $bg-danger-color
                         
                         .cart-footer
                             .cart-total
@@ -315,7 +361,7 @@ main
                                 button
                                     font-size: 1rem
 
-@media screen and ( max-width: 405px )
+@media screen and ( max-width: 436px )
     main
         .main-container
             .main-content
@@ -334,6 +380,7 @@ main
 
                                 .product-count
                                     width: calc( 100% - 80px )
+
                                     .cart-price
                                         span
                                             font-size: 0.8rem
@@ -348,6 +395,12 @@ main
                                             width: 40px
                                             height: 25px
                                             font-size: 0.8rem
+                                    
+                                    .cart-actions
+                                        button
+                                            width: 25px
+                                            height: 25px
+                                            font-size: 0.8rem
                         
                         .cart-footer
                             .cart-total
@@ -358,3 +411,52 @@ main
                                 button
                                     padding: 5px
                                     font-size: 0.8rem
+
+@media screen and ( max-width: 377px )
+    main
+        .main-container
+            .main-content
+                .cart-box
+                    .cart-table
+                        .cart-body
+                            .cart-item
+                                .cart-product
+                                    width: 60px
+                                    .product-image
+                                        img
+                                            aspect-ratio: 1/1
+
+                                .product-count
+                                    width: calc( 100% - 60px )
+
+                                    .cart-price
+                                        span
+                                            font-size: 0.6rem
+                                        
+                                    .cart-quantity
+                                        button
+                                            width: 20px
+                                            height: 20px
+                                            font-size: 0.6rem
+
+                                        span
+                                            width: 30px
+                                            height: 20px
+                                            font-size: 0.6rem
+                                    
+                                    .cart-actions
+                                        button
+                                            width: 20px
+                                            height: 20px
+                                            font-size: 0.6rem
+                        
+                        .cart-footer
+                            .cart-total
+                                span
+                                    font-size: 0.6rem
+
+                            .cart-buttons
+                                button
+                                    padding: 5px
+                                    font-size: 0.6rem
+    

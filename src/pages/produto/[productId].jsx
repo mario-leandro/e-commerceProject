@@ -8,32 +8,60 @@ import "@/styles/product.sass";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { useCart } from '@/context/CartContext'; // Importar o contexto do carrinho
+import Image from 'next/image';
 
 function ProductDetails() {
     const router = useRouter();
     const { productId } = router.query;
-    const [productData, setProductData] = useState({});
+    const [productData, setProductData] = useState(null);
     const { addToCart } = useCart(); // Usar o hook do contexto do carrinho
 
     useEffect(() => {
-        const fetchProduct = async () => {
-            try {
-                const response = await UseApi.getProductById(productId);
-                setProductData(response);
-            } catch (error) {
-                console.error(error);
-            }
-        };
+        if (productId) {
+            const fetchProduct = async () => {
+                try {
+                    const response = await UseApi.getProductById(productId);
+                    setProductData(response);
+                } catch (error) {
+                    console.error(error);
+                }
+            };
 
-        fetchProduct();
+            fetchProduct();
+        }
     }, [productId]);
 
-    if (!productData) return <div>Carregando...</div>;
-
     const handleAddToCart = () => {
-        addToCart(productData);
-        router.push('/carrinho'); // Redirecionar para a página do carrinho
+        if (productData) {
+            addToCart(productData);
+            router.push('/carrinho'); // Redirecionar para a página do carrinho
+        }
     };
+
+    if (!productData) {
+        return (
+            <>
+                <Header />
+                <main>
+                    <div className="main-container">
+                        <div className="main-content">
+                            <div className="product-box">
+                                <div className="product-info">
+                                    <div className="product-top">
+                                        <div className="product-name">
+                                            <h1>Carregando...</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <Footer />
+            </>
+        ) 
+
+    }
 
     return (
         <>
@@ -44,7 +72,12 @@ function ProductDetails() {
                         <div className="product-box">
                             <div className="product-info">
                                 <div className="product-image">
-                                    <img src={productData.image} alt={productData.name} />
+                                    <Image 
+                                        src={productData.image} 
+                                        alt={productData.title} 
+                                        width={300} 
+                                        height={300}
+                                    />
                                 </div>
                                 
                                 <div className="product-top">
