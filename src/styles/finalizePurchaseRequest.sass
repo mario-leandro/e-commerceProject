@@ -1,0 +1,79 @@
+@import "_variables.sass"
+
+.confirmation-container
+    height: 100dvh
+    width: 100dvw
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    background-color: rgba(0, 0, 0, 0.5)
+    position: fixed
+    top: 0
+    left: 0
+    z-index: 1000
+
+    .confirmation-content
+        min-width: 20%
+        min-height: 200px
+        padding: 20px
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        background: $bg-tertiary-color
+        border-radius: 5px
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, .5)
+        gap: 20px
+
+        .confirmation-title
+            width: 100%
+            height: 50px
+            display: flex
+            align-items: center
+            justify-content: center
+
+            h2
+                color: $text-second-color
+                font-size: 1.2rem
+                margin-bottom: 20px
+
+        .confirmation-buttons
+            width: 100%
+            height: 50px
+            display: flex
+            flex-flow: row wrap
+            align-items: center
+            justify-content: space-between
+
+            #cancel-btn
+                width: 45%
+                height: 100%
+                display: flex
+                align-items: center
+                justify-content: center
+                font-size: 1rem
+                background: $bg-danger-color
+                color: $text-first-color
+                border: none
+                border-radius: 5px
+
+                &:hover 
+                    background: $bg-danger-hover
+                    color: $bg-secundary-color
+
+            #confirm-btn
+                width: 45%
+                height: 100%
+                display: flex
+                align-items: center
+                justify-content: center
+                font-size: 1rem
+                background: $bg-primary-color
+                color: $text-first-color
+                border: none
+                border-radius: 5px
+
+                &:hover 
+                    background: $bg-hover
+                    color: $principal-color-hover

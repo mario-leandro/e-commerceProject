@@ -1,9 +1,12 @@
 import { CartProvider } from '@/context/CartContext';
+import { FavoriteProvider } from '@/context/FavoriteContext';
 
 function MyApp({ Component, pageProps }) {
     return (
         <CartProvider>
-            <Component {...pageProps} />
+            <FavoriteProvider>
+                <Component {...pageProps} />
+            </FavoriteProvider>
         </CartProvider>
     );
 }

@@ -4,10 +4,15 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import DeleteProductConfirm from "@/components/deleteProductConfirm";
+import FinalizePurchaseRequest from "@/components/finalizePurchaseRequest";
 
 export default function MainCarrinho() {
     const { cart, removeFromCart } = useCart();
     const [quantities, setQuantities] = useState({});
+    const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+    const [showFinalizeConfirm, setShowFinalizeConfirm] = useState(false);
+    const [productToDelete, setProductToDelete] = useState(null);
 
     useEffect(() => {
         const initialQuantities = cart.reduce((acc, product) => {
@@ -26,6 +31,25 @@ export default function MainCarrinho() {
 
     const calculateTotal = () => {
         return cart.reduce((acc, product) => acc + product.price * (quantities[product.id] || 1), 0).toFixed(2);
+    };
+
+    const handleDeleteClick = (productId) => {
+        setProductToDelete(productId);
+        setShowDeleteConfirm(true);
+    };
+
+    const confirmDeleteProduct = () => {
+        removeFromCart(productToDelete);
+        setShowDeleteConfirm(false);
+        setProductToDelete(null);
+    };
+
+    const handleFinalizeClick = () => {
+        setShowFinalizeConfirm(true);
+    };
+
+    const confirmFinalizePurchase = () => {
+        setShowFinalizeConfirm(false);
     };
 
     return (
@@ -77,7 +101,7 @@ export default function MainCarrinho() {
                                                 </div>
                                             </div>
                                             <div className="cart-actions">
-                                                <button onClick={() => removeFromCart(product.id)}>
+                                                <button onClick={() => handleDeleteClick(product.id)}>
                                                     <FontAwesomeIcon icon={faTrash} />
                                                 </button>
                                             </div>
@@ -97,13 +121,25 @@ export default function MainCarrinho() {
                                 </div>
 
                                 <div className="cart-buttons">
-                                    <button id="btn-buy">Finalizar Compra</button>
+                                    <button id="btn-buy" onClick={handleFinalizeClick}>Finalizar Compra</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            {showDeleteConfirm && (
+                <DeleteProductConfirm 
+                    onCancel={() => setShowDeleteConfirm(false)}
+                    onConfirm={confirmDeleteProduct}
+                />
+            )}
+            {showFinalizeConfirm && (
+                <FinalizePurchaseRequest 
+                    onCancel={() => setShowFinalizeConfirm(false)}
+                    onConfirm={confirmFinalizePurchase}
+                />
+            )}
         </main>
     );
 }

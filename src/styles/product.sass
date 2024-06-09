@@ -50,7 +50,6 @@ main
                         height: 100%
                         display: grid
                         place-self: center
-                        
 
                         img
                             width: 100%
@@ -167,12 +166,7 @@ main
             .main-content
                 .product-box
                     .product-info
-                        display: flex
-                        flex-direction: column
-
-                        .product-image
-                            img
-                                aspect-ratio: 1/1
+                        grid-template-columns: 1fr
 
                         .product-top
                             .product-name
@@ -188,11 +182,6 @@ main
                                 font-size: 0.8rem
 
                     .product-bottom
-                        grid-template-rows: 1fr
-
-
                         .product-description
-                            
-
                             p
                                 font-size: 0.8rem

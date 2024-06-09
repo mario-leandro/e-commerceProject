@@ -7,38 +7,45 @@ import "@/styles/globals.sass";
 import "@/styles/product.sass";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faHeart } from '@fortawesome/free-solid-svg-icons';
-import { useCart } from '@/context/CartContext'; // Importar o contexto do carrinho
+import { useCart } from '@/context/CartContext';
+import { useFavorites } from '@/context/FavoriteContext';
 import Image from 'next/image';
 
 function ProductDetails() {
     const router = useRouter();
     const { productId } = router.query;
     const [productData, setProductData] = useState(null);
-    const { addToCart } = useCart(); // Usar o hook do contexto do carrinho
+    const [loading, setLoading] = useState(true);
+    const { addToCart } = useCart();
+    const { addToFavorites } = useFavorites();
 
     useEffect(() => {
-        if (productId) {
-            const fetchProduct = async () => {
-                try {
-                    const response = await UseApi.getProductById(productId);
-                    setProductData(response);
-                } catch (error) {
-                    console.error(error);
-                }
-            };
+        if (!productId) return; 
 
-            fetchProduct();
-        }
+        const fetchProduct = async () => {
+            try {
+                const response = await UseApi.getProductById(productId);
+                setProductData(response);
+                setLoading(false);
+            } catch (error) {
+                console.error(error);
+                setLoading(false);
+            }
+        };
+
+        fetchProduct();
     }, [productId]);
 
     const handleAddToCart = () => {
-        if (productData) {
-            addToCart(productData);
-            router.push('/carrinho'); // Redirecionar para a página do carrinho
-        }
+        addToCart(productData);
+        router.push('/carrinho');
     };
 
-    if (!productData) {
+    const handleAddToFavorites = () => {
+        addToFavorites(productData);
+    };
+
+    if (loading) {
         return (
             <>
                 <Header />
@@ -59,8 +66,31 @@ function ProductDetails() {
                 </main>
                 <Footer />
             </>
-        ) 
+        );
+    }
 
+    if (!productData) {
+        return (
+            <>
+                <Header />
+                <main>
+                    <div className="main-container">
+                        <div className="main-content">
+                            <div className="product-box">
+                                <div className="product-info">
+                                    <div className="product-top">
+                                        <div className="product-name">
+                                            <h1>Produto não encontrado</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <Footer />
+            </>
+        ); 
     }
 
     return (
@@ -94,12 +124,9 @@ function ProductDetails() {
                                             <FontAwesomeIcon icon={faCartShopping} />
                                         </button>
                                         
-                                        <form action="/favoritos" method='POST'>
-                                            <input type="hidden" name="favorite" value={productData.id} />
-                                            <button type="submit" id="addFavorite">
-                                                <FontAwesomeIcon icon={faHeart} />
-                                            </button>
-                                        </form>
+                                        <button onClick={handleAddToFavorites} id="addFavorite">
+                                            <FontAwesomeIcon icon={faHeart} />
+                                        </button>
                                     </div>
                                 </div>
                             </div>

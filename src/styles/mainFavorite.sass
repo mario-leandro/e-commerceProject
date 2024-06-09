@@ -1,0 +1,131 @@
+@import "_variables.sass"
+    
+main
+    width: 100%
+    min-height: 100dvh
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: flex-start
+    
+    .main-container
+        width: 95%
+        height: 100%
+        padding: 20px
+        display: flex
+        align-items: center
+        justify-content: center
+
+        .main-content
+            width: 100%
+            height: 100%
+            display: flex
+            flex-direction: column
+            align-items: center
+            justify-content: center
+
+            .favorite-box
+                width: 100%
+                height: 100%
+                display: flex
+                flex-direction: column
+                justify-content: center
+                align-items: center
+
+                .favorite-title
+                    width: 100%
+                    height: 50px
+                    display: flex
+                    justify-content: center
+                    align-items: center
+
+                    h1
+                        font-size: 1.8rem
+                        color: $text-second-color
+
+                .favorite-list
+                    width: 100%
+                    height: calc( 100% - 50px )
+                    display: flex
+                    flex-wrap: wrap
+                    justify-content: center
+                    align-items: center
+
+                    .product-card
+                        width: 280px
+                        height: 310px
+                        padding: 10px
+                        margin: 10px
+                        border: 1px solid $bg-primary-color
+                        border-radius: 10px
+                        display: flex
+                        flex-direction: column
+                        justify-content: space-around
+                        align-items: center
+
+                        .card-image
+                            width: 100%
+                            height: 130px
+                            display: flex
+                            justify-content: center
+                            align-items: center
+
+                            img
+                                width: 100%
+                                height: 100%
+                                object-fit: contain
+                                aspect-ratio: 4/3
+
+                        .card-body 
+                            width: 100%
+                            height: calc( 100% - 150px )
+                            display: flex
+                            flex-direction: column
+                            justify-content: center
+                            align-items: center
+
+                            .card-name
+                                width: 100%
+                                height: calc( 100% / 3 )
+                                font-size: .8rem
+                                color: $text-second-color
+                                margin: 10px
+                                display: flex
+                                justify-content: center
+                                align-items: center
+
+                            .card-price
+                                width: 100%
+                                height: calc( 100% / 3 )
+                                font-size: medium
+                                font-weight: bold
+                                color: $text-second-color
+                                display: flex
+                                justify-content: flex-start
+                                align-items: center
+
+                            .card-button
+                                width: 100%
+                                height: calc( 100% / 3 )
+                                display: flex
+                                justify-content: center
+                                align-items: center
+
+                                button
+                                    width: 100px
+                                    height: 30px
+                                    background-color: $bg-primary-color
+                                    color: $text-first-color
+                                    border: none
+                                    border-radius: 5px
+                                    cursor: pointer
+                                    transition: background-color 0.5s
+
+                                    &:hover
+                                        background: $bg-secundary-color
+                                        color: $text-second-color
+
+                    .product-card:hover
+                        cursor: pointer
+                        transform: scale(1.1)
+                        transition: transform 0.5s
