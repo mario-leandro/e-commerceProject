@@ -1,370 +1,138 @@
 @import "_variables.sass"
 
-header
+header 
     width: 100%
-    height: 60px
-    background: $bg-primary-color
+    height: 80px
+    background-color: #6d28d9
     display: flex
-    justify-content: center
     align-items: center
+    justify-content: center
 
-    .header-container
-        width: 95%
+.header-container
+    max-width: 1200px
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+.mobile-icons 
+    display: none
+    // font-size: 24px
+    // cursor: pointer
+
+.logo 
+    font-size: 24px
+    font-weight: bold
+    color: #fff
+    text-decoration: none
+
+.nav-bar
+    width: auto
+    display: flex
+    height: 100%
+    align-items: center
+    gap: 20px
+
+    .menu-list
+        list-style: none
+        display: flex
+        align-items: center
+        gap: 20px
+
+        .menu-item
+            .menu-link
+                color: #fff
+                text-decoration: none
+                font-size: 16px
+                transition: color 0.3s
+
+            &:hover
+                color: #d1d5db
+
+        #dropdown
+            position: relative
+
+            #categoryMenu-content
+                min-width: 200px
+                height: auto
+                display: none
+                flex-direction: column
+                justify-content: flex-start
+                align-items: center
+                position: absolute
+                top: 50px
+                left: 0
+                background-color: #6d28d9
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2)
+                z-index: 1
+                border-radius: 8px 
+
+                a
+                    padding: 10px
+                    color: #fff
+                    text-decoration: none
+                    display: block
+                    border-radius: 8px 
+
+                    &:hover
+                        background-color: #5b21b6
+
+            &:hover .categoryMenu-content
+                display: flex
+
+    .client-options 
         height: 100%
         display: flex
-        justify-content: center
         align-items: center
+        gap: 20px
 
-        .header-content
-            width: 95%
-            height: 100%
-            display: flex
-            flex-direction: row
-            justify-content: space-between
-            align-items: center
+        .register
+            position: relative
 
-            .logo
-                width: auto
-                height: 100%
-                margin-right: 20px
-                display: flex
-                justify-content: center
-                align-items: center
+            #registerDropdown
+                color: #fff
+                font-size: 16px
+                transition: color 0.3s
 
-                a 
-                    font-size: 1.2rem
-                    font-weight: 700
-                    color: $text-first-color
-                    text-decoration: none
-            
-            .mobile-icons
+            #register-content
+                min-width: 200px
+                height: auto
                 display: none
-
-            .nav-bar
-                width: calc( 100% - 200px )
-                height: 100%
-                display: flex
-                flex-direction: row
-                justify-content: flex-end
+                flex-direction: column
+                justify-content: flex-start
                 align-items: center
+                position: absolute
+                top: 60px
+                left: 0
+                background-color: #6d28d9
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2)
+                z-index: 1
+                border-radius: 8px
 
-                &.open
+                a
+                    width: 100%
+                    padding: 10px
+                    color: #fff
+                    text-decoration: none
                     display: block
-                    position: absolute
-                    top: 60px
-                    left: 0
-                    width: 100%
-                    background-color: $bg-primary-color
+                    border-radius: 8px 
 
-                .menu-list
-                    width: auto
-                    height: 100%
-                    margin-right: 10px
-                    display: flex
-                    flex-direction: row
-                    justify-content: center
-                    align-items: center
+                    &:hover
+                        background-color: #5b21b6
 
-                    .menu-item
-                        width: auto
-                        height: 100%
-                        margin: 0 10px
-                        display: flex
-                        justify-content: center
-                        align-items: center
-                            
-                        a
-                            width: 100%
-                            height: 100%
-                            font-size: 1rem
-                            font-weight: 700
-                            color: $text-first-color
-                            text-decoration: none
-                            cursor: pointer
-                            display: flex
-                            justify-content: center
-                            align-items: center
-                            
-                    #dropdown
-                        width: auto
-                        height: 100%
-                        margin: 0 10px
-                        display: flex
-                        flex-direction: column
-                        justify-content: center
-                        align-items: center
-                        
-                        #categoryMenu
-                            width: 100%
-                            height: 100%
-                            font-size: 1rem
-                            font-weight: 700
-                            color: $text-first-color
-                            text-decoration: none
-                            cursor: pointer
-                            display: flex
-                            justify-content: center
-                            align-items: center
+            &:hover
+                color: #d1d5db
+        
+        .buy-options
+            display: flex
+            align-items: center
+            gap: 20px
 
-                        #categoryMenu-content
-                            position: absolute
-                            top: 60px
-                            left: 0
-                            width: 100%
-                            height: 50px
-                            background: $bg-primary-color
-                            display: none
-                            flex-direction: row
-                            justify-content: center
-                            align-items: center
-                            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2)
+            a
+                color: #fff
+                text-decoration: none
+                font-size: 16px
+                transition: color 0.3s
 
-                            a
-                                width: 100%
-                                height: 100%
-                                margin: 0 10px
-                                display: flex
-                                justify-content: center
-                                align-items: center
-                                font-weight: 700
-
-                                &:hover
-                                    background: $bg-hover
-                                    color: #4f1271
-                                    transition: .3s all ease-in-out
-                
-                .client-options
-                    width: auto
-                    height: 100%
-                    margin: 0 10px
-                    display: flex
-                    flex-direction: row
-                    justify-content: center
-                    align-items: center
-                    
-                    .register
-                        width: 150px
-                        height: 100%
-                        margin-right: 10px
-                        display: flex
-                        flex-direction: column
-                        justify-content: center
-                        align-items: center
-
-                        #registerDropdown
-                            width: 150px
-                            height: 100%
-                            color: $text-first-color
-                            font-weight: 700
-                            display: flex
-                            flex-direction: column
-                            justify-content: center
-                            align-items: center
-                            cursor: pointer
-
-                        #register-content
-                            width: 150px
-                            position: absolute
-                            top: 60px
-                            display: none
-                            flex-direction: column
-                            justify-content: center
-                            align-items: center
-                            background: $bg-primary-color
-                            color: $text-first-color
-                            font-weight: 700
-                            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2)
-
-                            &.show
-                                display: flex
-
-                            a 
-                                width: 100%
-                                height: 100%
-                                margin: 10px 0
-                                padding: .5rem 0
-                                display: flex
-                                justify-content: center
-                                align-items: center
-                                font-weight: 700
-
-                                &:hover
-                                    background: $bg-hover
-                                    color: $text-second-color
-                                    transition: .3s all ease-in-out
-
-                    .buy-options
-                        width: auto
-                        height: 100%
-                        margin-left: 10px
-                        display: flex
-                        flex-direction: row 
-                        justify-content: center
-                        align-items: center
-
-                        a
-                            width: 100%
-                            height: 100%
-                            font-size: 1.5rem
-                            color: $text-first-color
-                            text-decoration: none
-                            margin: 0 10px
-                            display: flex
-                            justify-content: center
-                            align-items: center
-
-@media screen and ( max-width: 768px )
-    header
-        .header-container
-            .header-content
-                .logo
-                    a
-                        font-size: 1rem
-
-                .mobile-icons
-                    display: flex
-                    flex-direction: row 
-                    justify-content: center
-                    align-items: center
-                    color: $text-first-color
-
-                    #closeMenu
-                        display: flex
-
-                .nav-bar
-                    width: 100%
-                    height: auto
-                    display: none
-
-                .open
-                    width: 100%
-                    height: auto
-                    position: absolute
-                    top: 60px
-                    left: 0
-                    display: flex
-                    flex-direction: column
-                    justify-content: center
-                    align-items: center
-
-                    .menu-list
-                        width: 100%
-                        height: auto
-                        background: $bg-primary-color
-                        display: flex
-                        flex-direction: column
-                        justify-content: center
-                        align-items: center
-
-                        .menu-item
-                            width: 100%
-                            height: 50px
-                            margin: 10px 0
-                            display: flex
-                            justify-content: center
-                            align-items: center
-
-                            a
-                                width: 100%
-                                height: 100%
-                                font-size: 1rem
-                                
-
-                        #dropdown
-                            width: 100%
-                            height: auto
-                            display: flex
-                            flex-direction: column
-                            justify-content: center
-                            align-items: center
-                            
-                            #categoryMenu
-                                width: 100%
-                                height: 50px
-                                font-size: 1rem
-                                display: flex
-                                justify-content: center
-                                align-items: center
-
-                            #categoryMenu-content
-                                width: 100%
-                                height: auto
-                                display: none
-                                flex-direction: column
-                                justify-content: center
-                                align-items: center
-                                position: relative
-                                top: 0
-
-                                &:hover
-                                    transition: .3s all ease-in-out
-
-                                a
-                                    font-size: 1rem
-                                    width: 100%
-                                    padding: 10px 0
-                                    display: flex
-                                    justify-content: center
-                                    align-items: center
-                                
-
-                    .client-options
-                        width: 100%
-                        height: auto
-                        margin: 0
-                        padding: 0
-                        display: flex
-                        flex-direction: column
-                        align-items: center
-                        justify-content: center
-
-                        .register
-                            width: 100%
-                            margin: 0
-                            padding: 0
-                            display: flex
-                            flex-direction: column
-                            align-items: center
-                            justify-content: center
-
-                            #registerDropdown
-                                font-size: 1rem
-                                width: 100%
-                                height: 70px
-                                display: flex
-                                flex-direction: column
-                                align-items: center
-                                justify-content: center
-
-                            #register-content
-                                width: 100%
-                                position: relative
-                                top: 0
-                                
-                                &.show
-                                    display: flex
-
-                                a
-                                    font-size: 1rem
-                                    width: 100%
-
-                        .buy-options
-                            width: 100%
-                            padding: 0
-                            margin: 0
-                            padding: 10px 0
-                            display: flex
-                            flex-direction: row
-                            align-items: center
-                            justify-content: center
-
-                            a
-                                font-size: 2rem
-                                margin: 0
-                                padding: 0
-                                margin: 5px 0
-                                width: 100%
-                                height: 100%
-                                display: flex
-                                justify-content: center
-                                align-items: center
+                &:hover
+                    color: #d1d5db
