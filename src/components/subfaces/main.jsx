@@ -1,5 +1,4 @@
 "use client"
-import "@/styles/main.sass";
 import FeaturedProducts from "@/app/api/routes/featuredProducts";
 
 export default function Main() {

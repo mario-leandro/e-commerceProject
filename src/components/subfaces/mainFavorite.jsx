@@ -1,4 +1,3 @@
-import "@/styles/mainFavorite.sass";
 import { useFavorites } from '@/context/FavoriteContext';
 import Image from 'next/image';
 

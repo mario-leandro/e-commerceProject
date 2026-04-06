@@ -1,4 +1,3 @@
-import "@/styles/mainLogin.sass";
 import Link from "next/link";
 
 export default function MainLogin() {

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "@/styles/categoryDrop.sass";
 import Link from "next/link";
 
 export default function CategoryDrop() {

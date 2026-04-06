@@ -9,7 +9,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import CategoryDrop from "@/components/categoryDrop.jsx";
 import RegisterDrop from "@/components/clientDrop.jsx";
-import "@/styles/header.sass";
 import Link from "next/link";
 
 export default function Header() {
@@ -20,8 +19,8 @@ export default function Header() {
   };
 
   return (
-    <header>
-      <div className="header-container">
+    <header className="w-full h-[80px] flex justify-center items-center">
+      <div className="w-full flex flex-row justify-between items-center">
         <div className="logo">
           <a href="/">Mario&apos;s Store</a>
         </div>

@@ -3,13 +3,12 @@ import UseApi from '@/app/api/api.js';
 import { useState, useEffect } from 'react';
 import Header from '@/components/subfaces/header';
 import Footer from '@/components/subfaces/footer';
-import "@/styles/globals.sass";
-import "@/styles/product.sass";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { useCart } from '@/context/CartContext';
 import { useFavorites } from '@/context/FavoriteContext';
 import Image from 'next/image';
+import "@/styles/globals.sass";
 
 function ProductDetails() {
     const router = useRouter();

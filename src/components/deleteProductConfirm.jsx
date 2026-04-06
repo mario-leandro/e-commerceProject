@@ -1,4 +1,3 @@
-import "@/styles/deleteProductConfirm.sass";
 import "@/styles/globals.sass";
 
 export default function DeleteProductConfirm({ onCancel, onConfirm }) {

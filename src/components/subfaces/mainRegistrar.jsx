@@ -1,5 +1,4 @@
 import Link from "next/link";
-import "@/styles/mainRegistrar.sass";
 
 export default function MainRegistrar() {
     return (

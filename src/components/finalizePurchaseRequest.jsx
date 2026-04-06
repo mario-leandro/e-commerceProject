@@ -1,4 +1,3 @@
-import "@/styles/finalizePurchaseRequest.sass";
 import "@/styles/globals.sass";
 
 export default function FinalizePurchaseRequest({ onCancel, onConfirm }) {
